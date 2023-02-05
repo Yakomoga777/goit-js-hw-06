@@ -23,3 +23,15 @@ button {
   cursor: pointer;
 }
 /* ul#ingredients */
+
+.gallery {
+  display: flex;
+  gap: 10px;
+}
+
+.gallery__items {
+  list-style: none;
+}
+.gallery__items img {
+  height: 320px;
+}

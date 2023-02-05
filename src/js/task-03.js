@@ -28,23 +28,78 @@ HTML містить список ul.gallery.
 Додай мінімальне оформлення галереї флексбоксами або грідами через CSS класи.
 */
 
-//* 1.Знаходимо батьківський елемент
+// const list = document.querySelector('.gallery');
+// console.log(list);
 
-const ulGallery = document.querySelector('ul.gallery');
-console.log(ulGallery);
+// const htmlMarkup = images
+//   .map(
+//     image => `<li><img class="photo" src="${image.url}" alt="${image.alt}"><li>`
+//   )
+//   .join(' ');
+// console.log(htmlMarkup);
 
-//* 2. Створюємо теги <img> та <li>, та вкладаємо їх в список.
-const liEl = document.createElement('li');
-const imgEl = document.createElement('img');
+// //* 1.Знаходимо батьківський елемент
+
+// const ulGallery = document.querySelector('ul.gallery');
+// console.log(ulGallery);
+
+// //* 2. Створюємо тег <li>
+// const liEl = document.createElement('li');
 
 // console.log(liEl, imgEl);
 
-//* 3. Вставляємо рядки в тег img
-imgEl.setAttribute('src', image.url);
-imgEl.setAttribute('alt', image.alt);
-console.log(imgEl);
+// //* 3. Створюємо тег img
+// const imgEl = document.createElement('img');
+// imgEl.setAttribute('src', image.url);
+// imgEl.setAttribute('alt', image.alt);
+// console.log(imgEl);
 
-//* 4. Вкладаємо теги <img> в <li>
+// //* 4. Додаємо елемент до масиву
+// let array = [];
+// array.push(imgEl.src, imgEl.alt);
+// // array.push();
+// console.log(array);
+// console.log();
+// //перетворюємо масив в рядок
+// const string = `<img src= "${array[0]}" alt= "${array[1]}">`;
+// console.log(string);
 
-liEl.insertAdjacentHTML('afterbegin', '');
-console.log(liEl);
+// //* 4. Вкладаємо теги <img> в <li>
+
+// liEl.insertAdjacentHTML('afterbegin', string);
+// console.log(liEl);
+
+// ulGallery.append(liEl);
+
+//* Автоматизуємо у функції, перебираючи images масив об"єктів
+
+function makeGalleryList(array) {
+  const ulGallery = document.querySelector('ul.gallery'); // 1.Знаходимо батьківський елемент
+  console.log(ulGallery);
+
+  images.forEach(image => {
+    const liEl = document.createElement('li'); //2. Створюємо тег <li>
+    liEl.classList.add('gallery__items');
+    console.log(liEl);
+
+    const imgEl = document.createElement('img');
+
+    imgEl.setAttribute('src', image.url);
+    imgEl.setAttribute('alt', image.alt);
+    console.log(imgEl);
+
+    let array = [];
+    array.push(imgEl.src, imgEl.alt);
+    console.log(array);
+
+    const string = `<img src= "${array[0]}" alt= "${array[1]}">`;
+    console.log(string);
+
+    liEl.insertAdjacentHTML('afterbegin', string);
+    console.log(liEl);
+
+    return ulGallery.append(liEl);
+  });
+}
+
+console.log(makeGalleryList(images));

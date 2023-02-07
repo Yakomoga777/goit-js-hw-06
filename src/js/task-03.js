@@ -75,28 +75,22 @@ HTML містить список ul.gallery.
 
 function makeGalleryList(array) {
   const ulGallery = document.querySelector('ul.gallery'); // 1.Знаходимо батьківський елемент
-  console.log(ulGallery);
 
   images.forEach(image => {
     const liEl = document.createElement('li'); //2. Створюємо тег <li>
     liEl.classList.add('gallery__items');
-    console.log(liEl);
 
     const imgEl = document.createElement('img');
 
     imgEl.setAttribute('src', image.url);
     imgEl.setAttribute('alt', image.alt);
-    console.log(imgEl);
 
     let array = [];
     array.push(imgEl.src, imgEl.alt);
-    console.log(array);
 
     const string = `<img src= "${array[0]}" alt= "${array[1]}">`;
-    console.log(string);
 
     liEl.insertAdjacentHTML('afterbegin', string);
-    console.log(liEl);
 
     return ulGallery.append(liEl);
   });

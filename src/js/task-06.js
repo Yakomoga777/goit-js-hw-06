@@ -22,19 +22,18 @@
 // console.log(callback());
 
 const inputEl = document.querySelector('#validation-input');
-console.log(inputEl);
-inputEl.addEventListener('blur', callback);
-function callback(event) {
-  if (Number(event.currentTarget.value.length) !== 6) {
-    // console.log(Number(event.currentTarget.value.length));
-    console.log(typeof event.currentTarget.value.length);
+console.log(typeof +inputEl.getAttribute('data-length'));
+inputEl.addEventListener('blur', onInputBlur);
 
-    inputEl.classList.add('red-border');
-    inputEl.classList.remove('green-border');
-  } else inputEl.classList.add('green-border');
-  inputEl.classList.remove('red-border');
-
-  //   console.log(event.target.value.length);
-  //   console.log('Розфокус');
+function onInputBlur(event) {
+  if (
+    Number(event.target.value.length) !== +inputEl.getAttribute('data-length')
+  ) {
+    inputEl.classList.add('invalid');
+    inputEl.classList.remove('valid');
+  } else {
+    inputEl.classList.add('valid');
+    inputEl.classList.remove('invalid');
+  }
 }
 console.log(callback());

@@ -12,10 +12,7 @@
 //* Пункт 1
 const makeCountsCategories = () => {
   const categoriesEl = document.querySelector('ul#categories');
-  console.log(categoriesEl);
-
   const liItemsEl = categoriesEl.querySelectorAll('li.item');
-  console.log(liItemsEl);
 
   return `Number of categories : ${liItemsEl.length}`;
 };
@@ -24,7 +21,6 @@ console.log(makeCountsCategories());
 //* Пункт 2
 
 const ItemsEl = document.querySelectorAll('.item');
-console.log(ItemsEl);
 
 ItemsEl.forEach(item => {
   console.log(`Category: ${item.firstElementChild.textContent}`);

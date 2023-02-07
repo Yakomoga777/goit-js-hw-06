@@ -9,8 +9,9 @@ console.log(inputControlEl);
 const spanTextEl = document.querySelector('#text');
 console.log(spanTextEl);
 
-inputControlEl.addEventListener('input', callback);
-function callback(event) {
+inputControlEl.addEventListener('input', onRangeInput);
+
+function onRangeInput(event) {
   let fontSize = '';
   fontSize = event.currentTarget.value;
 

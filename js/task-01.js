@@ -24,6 +24,7 @@ const ItemsEl = document.querySelectorAll('.item');
 
 ItemsEl.forEach(item => {
   console.log(`Category: ${item.firstElementChild.textContent}`);
+  console.log(`Elements: ${item.lastElementChild.children.length}`);
 });
 
 // Number of categories: 3

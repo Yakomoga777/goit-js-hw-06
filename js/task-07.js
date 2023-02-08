@@ -5,22 +5,21 @@
  */
 
 const inputControlEl = document.querySelector('#font-size-control');
-console.log(inputControlEl);
+console.log(inputControlEl.value);
 const spanTextEl = document.querySelector('#text');
 console.log(inputControlEl.getAttribute('min'));
 
 inputControlEl.addEventListener('input', onRangeInput);
-// inputControlEl.target.value = 16;
+inputControlEl.value = inputControlEl.getAttribute('min');
 
 function onRangeInput(event) {
-  // let fontSize = '';
   let fontSize = event.target.value;
   let a = spanTextEl.style.fontSize;
-  // console.log(fontSize);
+
   if (event.target.value === null) {
     spanTextEl.style.fontSize = '55px';
   }
-  // spanTextEl.setAttribute('style', `font-size: ${fontSize}px`);
+
   spanTextEl.style.fontSize = `${fontSize}px`;
   console.log(event.value);
 }

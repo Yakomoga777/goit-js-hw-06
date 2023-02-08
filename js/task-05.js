@@ -7,7 +7,7 @@ const spanEl = document.querySelector('#name-output');
 //* 2. Створюємо callback
 
 function onInputKeypress(event) {
-  if (event.currentTarget.value === ' ') {
+  if (event.currentTarget.value === '') {
     spanEl.textContent = 'Anonymous';
   } else {
     spanEl.textContent = event.currentTarget.value;

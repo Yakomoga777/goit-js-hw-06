@@ -5,16 +5,18 @@
 
 const btnEl = document.querySelector('.change-color');
 btnEl.addEventListener('click', onBtnClick);
+const spanEl = document.querySelector('.color');
 
 function onBtnClick() {
   function getRandomHexColor() {
     console.log('клік');
 
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    return `#${Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, 0)}`;
   }
   const bodyEl = document.querySelector('body');
-
   bodyEl.setAttribute('style', `background-color: ${getRandomHexColor()}`);
-  console.log(bodyEl);
-  console.log(getRandomHexColor());
+
+  spanEl.textContent = `${getRandomHexColor()}`;
 }

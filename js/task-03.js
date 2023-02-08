@@ -13,10 +13,6 @@ const images = [
   },
 ];
 
-const image = {
-  url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  alt: 'White and Black Long Fur Cat',
-};
 /*
 Напиши скрипт для створення галереї зображень на підставі масиву даних. 
 HTML містить список ul.gallery.
@@ -28,15 +24,17 @@ HTML містить список ul.gallery.
 Додай мінімальне оформлення галереї флексбоксами або грідами через CSS класи.
 */
 
-// const list = document.querySelector('.gallery');
-// console.log(list);
+const list = document.querySelector('.gallery');
+console.log(list);
 
-// const htmlMarkup = images
-//   .map(
-//     image => `<li><img class="photo" src="${image.url}" alt="${image.alt}"><li>`
-//   )
-//   .join(' ');
-// console.log(htmlMarkup);
+const stringEl = images
+  .map(
+    image =>
+      `<li><img class="photo" src="${image.url}" alt="${image.alt}"></li>`
+  )
+  .join('');
+// console.log(stringEl);
+list.insertAdjacentHTML('afterbegin', stringEl);
 
 // //* 1.Знаходимо батьківський елемент
 
@@ -73,27 +71,27 @@ HTML містить список ul.gallery.
 
 //* Автоматизуємо у функції, перебираючи images масив об"єктів
 
-function makeGalleryList(array) {
-  const ulGallery = document.querySelector('ul.gallery'); // 1.Знаходимо батьківський елемент
+// function makeGalleryList(array) {
+//   const ulGallery = document.querySelector('ul.gallery'); // 1.Знаходимо батьківський елемент
 
-  images.forEach(image => {
-    const liEl = document.createElement('li'); //2. Створюємо тег <li>
-    liEl.classList.add('gallery__items');
+//   images.forEach(image => {
+//     const liEl = document.createElement('li'); //2. Створюємо тег <li>
+//     liEl.classList.add('gallery__items');
 
-    const imgEl = document.createElement('img');
+//     const imgEl = document.createElement('img');
 
-    imgEl.setAttribute('src', image.url);
-    imgEl.setAttribute('alt', image.alt);
+//     imgEl.setAttribute('src', image.url);
+//     imgEl.setAttribute('alt', image.alt);
 
-    let array = [];
-    array.push(imgEl.src, imgEl.alt);
+//     let array = [];
+//     array.push(imgEl.src, imgEl.alt);
 
-    const string = `<img src= "${array[0]}" alt= "${array[1]}">`;
+//     const string = `<img src= "${array[0]}" alt= "${array[1]}">`;
 
-    liEl.insertAdjacentHTML('afterbegin', string);
+//     liEl.insertAdjacentHTML('afterbegin', string);
 
-    return ulGallery.append(liEl);
-  });
-}
+//     return ulGallery.append(liEl);
+//   });
+// }
 
-console.log(makeGalleryList(images));
+// console.log(makeGalleryList(images));

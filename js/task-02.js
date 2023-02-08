@@ -50,16 +50,34 @@ const ingredients = [
 //вставляємо в нього лішки
 // ulCategories.append(liEl_1, liEl_2, liEl_3, liEl_4, liEl_5);
 
+// function creatsList(ingredients) {
+//   const array = ingredients.map(element => {
+//     let el = document.createElement('li');
+//     el.textContent = element;
+//     el.classList.add('item');
+//     console.log(el);
+
+//     // const ulCategories = document.querySelector('ul#ingredients');
+//     // ulCategories.append(el);
+//   });
+//   const ulCategories = document.querySelector('ul#ingredients');
+//   ulCategories.append(...array);
+//   console.log(array);
+// }
+// console.log(creatsList(ingredients));
+
 function creatsList(ingredients) {
+  const array = [];
   ingredients.forEach(element => {
     let el = document.createElement('li');
     el.textContent = element;
     el.classList.add('item');
-    console.log(el);
+
+    array.push(el);
 
     const ulCategories = document.querySelector('ul#ingredients');
-    ulCategories.append(el);
-    console.log(ulCategories);
+    ulCategories.append(...array);
   });
+  console.log(array);
 }
 console.log(creatsList(ingredients));

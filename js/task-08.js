@@ -25,14 +25,14 @@ formEl.addEventListener('submit', formSubmit);
 function formSubmit(formEl) {
   formEl.preventDefault();
 
-  if (inputEmailEl.value !== '' && inputPasswordEl.value !== '') {
+  if (inputEmailEl.value === '' || inputPasswordEl.value === '') {
+    alert('всі поля повинні бути заповнені');
+  } else {
     const elements = {
       email: inputEmailEl.value,
       password: inputPasswordEl.value,
     };
+    formEl.currentTarget.reset();
     console.log(elements);
-  } else {
-    alert('всі поля повинні бути заповнені');
   }
-  formEl.currentTarget.reset();
 }

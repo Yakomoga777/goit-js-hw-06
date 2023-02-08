@@ -26,12 +26,10 @@ button {
 
 .gallery {
   display: flex;
+  list-style: none;
   gap: 10px;
 }
 
-.gallery__items {
-  list-style: none;
-}
-.gallery__items img {
+.photo {
   height: 320px;
 }

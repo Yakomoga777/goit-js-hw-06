@@ -95,3 +95,40 @@ list.insertAdjacentHTML('afterbegin', stringEl);
 // }
 
 // console.log(makeGalleryList(images));
+
+// Не можу через insertAdjacentHTML здійснити додавання. Допоможіть розібратися.
+// const gallery = document.querySelector('.gallery');
+// for (const element of images) {
+//   const liEl = document.createElement('li');
+//   liEl.classList.add('list');
+//   console.log(liEl);
+
+//   const imageEl = document.createElement('img');
+//   imageEl.src = element.url;
+//   imageEl.alt = element.alt;
+//   imageEl.width = 320;
+//   console.log(imageEl);
+//   console.log(element.url);
+
+//   gallery.insertAdjacentHTML(
+//     'beforeend',
+//     `<li><img src=" ${element.url}" </li>`
+//   );
+// }
+
+// const gallery = document.querySelector('.gallery');
+// const elements = images.map(option => {
+//   const liEl = document.createElement('li');
+//   liEl.classList.add('list');
+
+//   const imageEl = document.createElement('img');
+//   imageEl.src = option.url;
+//   imageEl.alt = option.alt;
+//   imageEl.width = 320;
+
+//   liEl.append(imageEl);
+//   console.log(liEl);
+//   gallery.append(liEl);
+//   // return imageEl;
+// });
+// gallery.append(...elements);
